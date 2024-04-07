@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.container{
+    max-width: 1100px;
+    padding: 0 15px;
+    margin: 0 auto;
+    & a{
+        color: aqua;
+    }
+    & nav{
+        padding: 50px 0;
+        display: flex;
+        justify-content: start;
+        gap: 50px;
+    }
+    & header{
+        background-color: grey;
+    }
+}
+.box > div > div{
+    width: 500px;
+    height: 350px;
+    border: 3px solid black;
+    cursor: pointer;
+    // overflow: hidden;
+}
+.box > div > div > img{
+    width: 100%;
+    height: 100%;
+    // object-fit: cover;
+    object-position: center;
+    transition: 1s;
+}
+.rotate{
+    & img:hover{
+        transform: rotate(90deg);
+    }
+}
+.scale{
+    & img:hover{
+        transform: scale(1.1);
+    }
+}
+.translate{
+    & img:hover{
+        transform: translate(50px, -80px);
+    }
+}
+.skew{
+    & img:hover{
+        transform: skew(30deg, -25deg);
+    }
+}
+.all{
+    & img:hover{
+        transform: rotate(45deg) scale(1.2) skew(10deg) translate(-150px);
+
+    }
+}
+
+
+// ---------------------------transition----------------------------// 
+
+
+.transition-wrap{
+    margin: 50px;
+}
+.transition{
+    border: 2px solid black;
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+    transition-property: transform, background-color, box-shadow;
+    transition-delay: 0s, 1s, 1.5s;
+    transition-duration: 0s, 1s, 1.5s ;
+}
+.transition:hover{
+    background-color: red;
+    transform: scale(1.2);
+    box-shadow: 0 0 14px rgb(13, 14, 13);
+}
+
+
+// ---------------------------animation----------------------------// 
+
+
+.animation-wrap{
+    margin-top: 50px;
+    border: 1px solid black;
+    width: 100%;
+}
+.animation{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    // animation-fill-mode: forwards;
+}
+.animation-wrap:hover .animation{
+    animation-name: circle;
+}
+.animation:hover{
+    animation-play-state: paused;
+}
+@keyframes circle{
+    0%{
+        left: 0;
+    }
+    50%{
+        border-radius: 0;
+    }
+    100%{
+        left: calc(100% - 100px);
+    }
+}
